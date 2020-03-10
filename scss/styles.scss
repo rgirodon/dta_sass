@@ -1,0 +1,45 @@
+@import 'variables';
+@import 'typos';
+
+
+body {
+    background-color: map-get($colors, bg);
+    @extend %typography;
+}
+
+h1 {
+    @extend %typography;
+
+    @include heading-shadow;
+}
+
+.header {
+
+    font-size: $defaultSize;
+
+    @include typo-size;
+}
+
+ul {
+    list-style: none;
+    text-align: right;
+
+    li {
+        display: inline;        
+        font-size: 3rem;
+
+        @include heading-shadow(map-get($colors, typo), 2px);
+
+        &:hover {
+            color: darken(map-get($colors, typo), 25%);
+
+            @include heading-shadow(darken(map-get($colors, typo), 25%), 6px);
+        }
+
+        &.item {
+            font-size: $defaultSize;
+
+            @include typo-size;
+        }
+    }
+}

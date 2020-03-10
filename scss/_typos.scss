@@ -1,0 +1,26 @@
+@mixin heading-shadow($color: map-get($colors, defaultShadow), $size: 4px) {
+    
+    @if(lightness($color) > 25%) {    
+    
+        text-shadow: $size $size $size darken($color, 10%);
+    }
+    @else {
+        text-shadow: $size $size $size ligthen($color, 10%);
+    }
+}
+
+@mixin typo-size() {
+
+    @each $key, $size in $sizes {
+
+        &--#{$key} {
+
+            font-size: $size;
+        }
+    }
+}
+
+%typography {
+    color: map-get($colors, typo);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
